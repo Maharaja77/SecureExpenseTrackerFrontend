@@ -12,6 +12,8 @@ function ExpenseForm() {
     date: "",
   });
 
+  
+
   // Load expenses
   const loadExpenses = async () => {
     try {
@@ -73,8 +75,15 @@ function ExpenseForm() {
     setExpense({ description: "", amount: "", date: "" });
   };
 
+
+
   return (
     <div className="container py-5">
+      {/* Header Section with Logout */}
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h3 className="text-success">Expense Tracker</h3>
+      </div>
+
       {/* Expense Form */}
       <div className="card mb-4 shadow-sm">
         <div className="card-body">
@@ -150,7 +159,7 @@ function ExpenseForm() {
                   className="list-group-item d-flex justify-content-between align-items-center"
                 >
                   <span>
-                    <strong>{e.description}</strong> | ₹{e.amount} |  {e.date}
+                    <strong>{e.description}</strong> | ₹{e.amount} | {e.date}
                   </span>
                   <div>
                     <button

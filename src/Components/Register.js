@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import API from "../api";
 
 function Register() {
@@ -10,10 +10,17 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", { username, password });
+      // By default, new users will get ROLE_USER
+      await API.post("/auth/register", {
+        username,
+        password,
+        role: "ROLE_USER", // assign role
+      });
+
       alert("Registration successful! Please login.");
       navigate("/login");
     } catch (error) {
+      console.error(error);
       alert("Registration failed. Try again.");
     }
   };

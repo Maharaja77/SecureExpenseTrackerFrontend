@@ -1,29 +1,32 @@
-//import React{useState} from "react";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import logo from "../asset/logo.jpg";
 
-import React, { useState } from "react";
-//import { Link, useNavigate } from "react-router-dom";
-//import API from "../api";
-
 function Header() {
-
   const [query, setQuery] = useState("");
-   const handleInputChange = (event) => {
+  const navigate = useNavigate();
+  const role = localStorage.getItem("role"); // Get role from storage
+
+  const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  // This runs when user clicks the search button
   const handleSearch = (event) => {
-    event.preventDefault(); // stop page reload
-    console.log("Search Query:", query); // check in console
+    event.preventDefault();
+    console.log("Search Query:", query);
     // You can call an API or filter data here
+  };
+
+  const handleLogout = () => {
+    localStorage.clear(); // remove token, role, refreshToken
+    navigate("/login"); // redirect to login
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
         {/* Logo and Brand */}
-        <a className="navbar-brand d-flex align-items-center" href="#">
+        <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
             src={logo}
             alt="Logo"
@@ -32,7 +35,7 @@ function Header() {
             className="rounded-circle me-2"
           />
           <span>SecureExpenseTracker</span>
-        </a>
+        </Link>
 
         {/* Toggler for Mobile */}
         <button
@@ -50,41 +53,63 @@ function Header() {
         {/* Navbar Links and Search */}
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {/* Navigation Links */}
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="Register">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href='Login'>
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href='Register'>
-                Register
-              </a>
-            </li>
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {!localStorage.getItem("token") && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </>
+            )}
+            {localStorage.getItem("token") && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/expense">
+                    Dashboard
+                  </Link>
+                </li>
+                {role === "ROLE_ADMIN" && (
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/admin">
+                      Admin Panel
+                    </Link>
+                  </li>
+                )}
+              </>
+            )}
           </ul>
 
           {/* Search Form */}
-          <form className="d-flex mt-2 mt-lg-0" role="search">
+          <form className="d-flex mt-2 mt-lg-0" role="search" onSubmit={handleSearch}>
             <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
               value={query}
-              onChange={handleInputChange}          
+              onChange={handleInputChange}
             />
-            <button
-              className="btn btn-outline-light border border-dark ps-2"
-              type="submit"
-            >
+            <button className="btn btn-outline-light border border-dark ps-2" type="submit">
               Search
             </button>
           </form>
+
+          {/* Logout Button */}
+          {localStorage.getItem("token") && (
+            <button
+              className="btn btn-danger ms-3"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
     </nav>
