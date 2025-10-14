@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../api";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 function ExpenseForm() {
   const [expenses, setExpenses] = useState([]);
@@ -11,6 +13,13 @@ function ExpenseForm() {
     amount: "",
     date: "",
   });
+
+  // Prepare chart data
+const chartData = expenses.map(e => ({
+  name: e.description,
+  amount: Number(e.amount)
+}));
+
 
   
 
@@ -181,6 +190,26 @@ function ExpenseForm() {
           </ul>
         </div>
       </div>
+      <div className="card shadow-sm mt-4">
+  <div className="card-body">
+    <h5 className="text-success mb-3 text-center">Expenses Chart</h5>
+    {expenses.length === 0 ? (
+      <p className="text-center text-muted">No expenses to display</p>
+    ) : (
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={chartData}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="amount" fill="#198754" />
+        </BarChart>
+      </ResponsiveContainer>
+    )}
+  </div>
+</div>
+
     </div>
   );
 }
