@@ -94,7 +94,7 @@ Frontend will run on:
 ### 👨‍💻 Project Run
 
 <p align="center">
-  <img src="./src/asset/register.png" alt="Login Page" width="500"/>
+  <img src="./src/asset/frontend_backend_running.png" alt="Login Page" width="500"/>
 </p>
 
 ### 🔐 Login Page
@@ -145,9 +145,10 @@ Frontend will run on:
 ## 👨‍💻 Author
 
 **Maha Raja R**
-📧 [mayamaharaja18@example.com](mailto:maharaja@example.com)
+📧 [mayamaharaja18@example.com](mailto:mayamaharaja18@example.com)
 🌐 [Portfolio](https://maharaja77.github.io/maharaja/)
-💼 [LinkedIn](#)
+💼 [LinkedIn](https://www.linkedin.com/in/maharajaofficial)
+🌐 [YouTube Channel](https://www.youtube.com/@tech_for_tech_world)
 
 ---
 
