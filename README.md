@@ -21,13 +21,13 @@ Admins can monitor all users and generate expense reports, while regular users c
 
 ## 🚀 Key Features
 
-✅ User Registration & Login using JWT Authentication
-✅ Role-based Access (Admin / User)
-✅ Add, Edit, Delete Expenses
-✅ Monthly Expense Charts (Bar/Line Graphs)
-✅ Responsive UI for all devices
-✅ Secure REST API built with Spring Boot
-✅ Database integration using JPA and MySQL
+✅ User Registration & Login using JWT Authentication<br>
+✅ Role-based Access (Admin / User)<br>
+✅ Add, Edit, Delete Expenses<br>
+✅ Monthly Expense Charts (Bar/Line Graphs)<br>
+✅ Responsive UI for all devices<br>
+✅ Secure REST API built with Spring Boot<br>
+✅ Database integration using JPA and MySQL<br>
 
 ---
 
