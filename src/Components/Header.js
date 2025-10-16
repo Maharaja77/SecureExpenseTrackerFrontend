@@ -5,7 +5,7 @@ import logo from "../asset/logo.jpg";
 function Header() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const role = localStorage.getItem("role"); // Get role from storage
+  const role = localStorage.getItem("role"); 
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
@@ -14,18 +14,18 @@ function Header() {
   const handleSearch = (event) => {
     event.preventDefault();
     console.log("Search Query:", query);
-    // You can call an API or filter data here
+    
   };
 
   const handleLogout = () => {
-    localStorage.clear(); // remove token, role, refreshToken
-    navigate("/login"); // redirect to login
+    localStorage.clear(); 
+    navigate("/login"); 
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
-        {/* Logo and Brand */}
+        
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
             src={logo}
@@ -37,7 +37,7 @@ function Header() {
           <span>SecureExpenseTracker</span>
         </Link>
 
-        {/* Toggler for Mobile */}
+        
         <button
           className="navbar-toggler"
           type="button"
@@ -50,9 +50,9 @@ function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Links and Search */}
+        
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {/* Navigation Links */}
+          
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {!localStorage.getItem("token") && (
               <>
@@ -86,7 +86,7 @@ function Header() {
             )}
           </ul>
 
-          {/* Search Form */}
+          
           <form className="d-flex mt-2 mt-lg-0" role="search" onSubmit={handleSearch}>
             <input
               className="form-control me-2"
@@ -101,7 +101,7 @@ function Header() {
             </button>
           </form>
 
-          {/* Logout Button */}
+          
           {localStorage.getItem("token") && (
             <button
               className="btn btn-danger ms-3"

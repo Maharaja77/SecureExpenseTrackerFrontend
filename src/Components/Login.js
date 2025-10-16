@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api";
-import { jwtDecode } from "jwt-decode"; // ✅ fixed import
+import { jwtDecode } from "jwt-decode"; 
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -19,9 +19,9 @@ function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("refreshToken", refreshToken);
 
-      // Decode JWT
-      const decoded = jwtDecode(token); // use named import
-      const userRole = decoded.role; // "ROLE_USER" or "ROLE_ADMIN"
+      
+      const decoded = jwtDecode(token); 
+      const userRole = decoded.role; 
       localStorage.setItem("role", userRole);
 
       alert("Login successful");

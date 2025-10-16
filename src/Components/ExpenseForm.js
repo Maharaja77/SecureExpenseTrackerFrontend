@@ -20,10 +20,7 @@ const chartData = expenses.map(e => ({
   amount: Number(e.amount)
 }));
 
-
-  
-
-  // Load expenses
+// Load expenses
   const loadExpenses = async () => {
     try {
       const res = await API.get("/api/expense");

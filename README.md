@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# 🛡️ SecureExpenseTracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="./src/asset/logo.jpg" alt="SecureExpenseTracker Logo" width="150"/>
+</p>
 
-## Available Scripts
+<p align="center">
+  <em>A secure, full-stack expense management application with JWT-based authentication and role-based access control.</em>
+</p>
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📖 About the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**SecureExpenseTracker** is a complete web application designed to help users **track daily expenses** securely.
+It features **user authentication**, **role-based access**, and **visual analytics** to help users manage their finances efficiently.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Admins can monitor all users and generate expense reports, while regular users can view and manage only their own data.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Key Features
 
-### `npm run build`
+✅ User Registration & Login using JWT Authentication
+✅ Role-based Access (Admin / User)
+✅ Add, Edit, Delete Expenses
+✅ Monthly Expense Charts (Bar/Line Graphs)
+✅ Responsive UI for all devices
+✅ Secure REST API built with Spring Boot
+✅ Database integration using JPA and MySQL
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Layer              | Technology Used                     |
+| ------------------ | ----------------------------------- |
+| **Frontend**       | ReactJS, Axios, Bootstrap, Recharts |
+| **Backend**        | Spring Boot, JPA, Hibernate         |
+| **Database**       | MySQL                               |
+| **Authentication** | JSON Web Token (JWT)                |
+| **Tools**          | VS Code, IntelliJ IDEA, Postman     |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📂 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+SecureExpenseTracker/
+│
+├
+├── frontend/               # ReactJS application
+│   ├── src/components/     # Components (Login, Dashboard, Expenses)
+│   ├── src/api/            # API configuration
+│   └── public/assets/      # Images and icons
+│
+├── README.md               # Project Documentation
+└── ...
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ⚙️ Setup & Installation
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 🧩 1. Run Backend (Spring Boot)
 
-### Code Splitting
+```bash
+cd backend
+mvn spring-boot:run
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Backend will run on:
+➡️ `http://localhost:8080`
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🧩 2. Run Frontend (ReactJS)
 
-### Making a Progressive Web App
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Frontend will run on:
+➡️ `http://localhost:3000`
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 📸 Screenshots
 
-### Deployment
+### 👨‍💻 Project Run
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<p align="center">
+  <img src="./src/asset/register.png" alt="Login Page" width="500"/>
+</p>
 
-### `npm run build` fails to minify
+### 🔐 Login Page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+  <img src="./src/asset/register.png" alt="Login Page" width="500"/>
+</p>
+<p align="center">
+<img src="./src/asset/login.png" alt="register page" width="500"/>
+</p>
+### 📊 Dashboard
+
+<p align="center">
+  <img src="./src/asset/user_addexpense.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/asset/user_expenselist.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/asset/user_expenselists.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center"><em>Track your expenses with interactive charts and reports.</em></p>
+
+---
+### 📊 Admin Dashboard
+<p align="center">
+  <img src="./src/asset/admin_dashboard.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/asset/adminreport.png" alt="Dashboard Page" width="600"/>
+  </p>
+  <p align="center">
+  <img src="./src/asset/admin_selectuserreport.png" alt="Dashboard Page" width="600"/>
+  </p>
+  <p align="center">
+  <img src="./src/asset/admin_addexpense.png" alt="Dashboard Page" width="600"/>
+</p>
+---
+## 🔒 Security Highlights
+
+* Encrypted password storage (BCrypt)
+* JWT-based authentication for secure API access
+* Role-based authorization (Admin/User)
+* CORS configuration for safe cross-origin communication
+
+---
+
+## 👨‍💻 Author
+
+**Maha Raja R**
+📧 [mayamaharaja18@example.com](mailto:maharaja@example.com)
+🌐 [Portfolio](https://maharaja77.github.io/maharaja/)
+💼 [LinkedIn](#)
+
+---
+
+
