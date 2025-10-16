@@ -144,7 +144,7 @@ Frontend will run on:
 
 ## 👨‍💻 Author
 
-**Maha Raja R**
+**MAHARAJA R**
 📧 [mayamaharaja18@example.com](mailto:mayamaharaja18@example.com)
 🌐 [Portfolio](https://maharaja77.github.io/maharaja/)
 💼 [LinkedIn](https://www.linkedin.com/in/maharajaofficial)
