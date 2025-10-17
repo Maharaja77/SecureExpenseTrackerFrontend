@@ -39,7 +39,7 @@ Admins can monitor all users and generate expense reports, while regular users c
 | **Backend**        | Spring Boot, JPA, Hibernate         |
 | **Database**       | MySQL                               |
 | **Authentication** | JSON Web Token (JWT)                |
-| **Tools**          | VS Code, IntelliJ IDEA, Postman     |
+| **Tools**          | VS Code, Eclipse IDEA, Postman     |
 
 ---
 
