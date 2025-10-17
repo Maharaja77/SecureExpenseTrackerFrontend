@@ -206,7 +206,6 @@ const chartData = expenses.map(e => ({
     )}
   </div>
 </div>
-
     </div>
   );
 }

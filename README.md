@@ -114,7 +114,7 @@ Frontend will run on:
   <img src="./src/asset/user_expenselist.png" alt="Dashboard Page" width="600"/>
 </p>
 <p align="center">
-  <img src="./src/asset/user_expenselists.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/Screenshot (158).png" alt="Dashboard Page" width="600"/>
 </p>
 <p align="center"><em>Track your expenses with interactive charts and reports.</em></p>
 
