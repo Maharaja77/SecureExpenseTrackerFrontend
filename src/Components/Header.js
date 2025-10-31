@@ -1,60 +1,54 @@
-import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../asset/logo.jpg";
 
 function Header() {
-  const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  const role = localStorage.getItem("role"); 
-
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    console.log("Search Query:", query);
-    
-  };
+  const role = localStorage.getItem("role");
 
   const handleLogout = () => {
-    localStorage.clear(); 
-    navigate("/login"); 
+    localStorage.clear();
+    navigate("/login");
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav
+      className="navbar navbar-expand-lg navbar-dark"
+      style={{
+        background: "linear-gradient(90deg, #198754, #43cea2)",
+        boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+      }}
+    >
       <div className="container-fluid">
-        
+        {/* Logo + App Name */}
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
             src={logo}
             alt="Logo"
             width="40"
             height="40"
-            className="rounded-circle me-2"
+            className="rounded-circle me-2 border border-light"
           />
-          <span>SecureExpenseTracker</span>
+          <span className="fw-bold">SecureExpenseTracker</span>
         </Link>
 
-        
+        {/* Mobile Toggle Button */}
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            {!localStorage.getItem("token") && (
+        {/* Navbar Links */}
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            {!localStorage.getItem("token") ? (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/login">
@@ -67,8 +61,7 @@ function Header() {
                   </Link>
                 </li>
               </>
-            )}
-            {localStorage.getItem("token") && (
+            ) : (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/expense">
@@ -82,34 +75,17 @@ function Header() {
                     </Link>
                   </li>
                 )}
+                <li className="nav-item">
+                  <button
+                    className="btn  btn-danger btn-sm ms-lg-3 mt-2 mt-lg-0"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
               </>
             )}
           </ul>
-
-          
-          <form className="d-flex mt-2 mt-lg-0" role="search" onSubmit={handleSearch}>
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-              value={query}
-              onChange={handleInputChange}
-            />
-            <button className="btn btn-outline-light border border-dark ps-2" type="submit">
-              Search
-            </button>
-          </form>
-
-          
-          {localStorage.getItem("token") && (
-            <button
-              className="btn btn-danger ms-3"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          )}
         </div>
       </div>
     </nav>

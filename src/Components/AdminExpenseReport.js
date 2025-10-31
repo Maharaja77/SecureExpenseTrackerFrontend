@@ -14,17 +14,18 @@ function AdminExpenseReport() {
   useEffect(() => {
     const role = localStorage.getItem("role");
     if (role !== "ROLE_ADMIN") {
-      navigate("/login"); // redirect non-admins
+      navigate("/login");
     }
   }, [navigate]);
 
-  // Load users for dropdown
+  // Load users
   const loadUsers = async () => {
     try {
       const res = await API.get("/api/admin/users", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setUsers(res.data);
+      setError(null);
     } catch (err) {
       console.error(err);
       setError("Failed to load users.");
@@ -35,7 +36,7 @@ function AdminExpenseReport() {
     loadUsers();
   }, []);
 
-  // Load expenses for selected user
+  // Load expenses by user
   const loadExpenses = async (userId) => {
     try {
       const res = await API.get(`/api/admin/expenses?userId=${userId}`, {
@@ -56,54 +57,93 @@ function AdminExpenseReport() {
   };
 
   return (
-    <div>
-      <div className="container py-5">
-        <h3 className="text-success mb-4 text-center">Admin Expense Report</h3>
+    <div
+      className="min-vh-100 d-flex justify-content-center align-items-center"
+      style={{
+        background: "linear-gradient(135deg, #a8edea, #fed6e3)",
+        padding: "40px 10px",
+      }}
+    >
+      <div className="container">
+        <div className="card shadow-lg border-0 rounded-4 p-4">
+          <h2 className="text-success text-center mb-3">
+            🧾 Admin Expense Report
+          </h2>
 
-        {error && <div className="alert alert-danger text-center">{error}</div>}
+          {error && (
+            <div className="alert alert-danger text-center">{error}</div>
+          )}
 
-        {/* User Dropdown */}
-        <div className="mb-4">
-          <label className="form-label">Select User:</label>
-          <select
-            className="form-select"
-            value={selectedUserId}
-            onChange={handleUserChange}
-          >
-            <option value="">-- Select User --</option>
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.username}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Expenses Table */}
-        {expenses.length > 0 ? (
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              {expenses.map((exp) => (
-                <tr key={exp.id}>
-                  <td>{exp.date}</td>
-                  <td>{exp.description}</td>
-                  <td>₹{exp.amount}</td>
-                </tr>
+          {/* User Selection */}
+          <div className="mb-4">
+            <label className="form-label fw-semibold">Select User:</label>
+            <select
+              className="form-select rounded-pill shadow-sm"
+              value={selectedUserId}
+              onChange={handleUserChange}
+            >
+              <option value="">-- Choose User --</option>
+              {users.map((user) => (
+                <option key={user.id} value={user.id}>
+                  {user.username}
+                </option>
               ))}
-            </tbody>
-          </table>
-        ) : selectedUserId ? (
-          <p className="text-center text-muted">No expenses found for this user.</p>
-        ) : (
-          <p className="text-center text-muted">Select a user to view expenses.</p>
-        )}
+            </select>
+          </div>
+
+          {/* Expense Table */}
+          <div className="card shadow-sm border-0 rounded-4 mt-3">
+            <div className="card-body">
+              {expenses.length > 0 ? (
+                <>
+                  <h5 className="text-success text-center mb-3">
+                    Expense Details
+                  </h5>
+                  <div className="table-responsive">
+                    <table className="table table-hover align-middle">
+                      <thead className="table-success text-center">
+                        <tr>
+                          <th>Date</th>
+                          <th>Description</th>
+                          <th>Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {expenses.map((exp) => (
+                          <tr key={exp.id} className="text-center">
+                            <td>{exp.date}</td>
+                            <td>{exp.description}</td>
+                            <td className="fw-semibold text-success">
+                              ₹{exp.amount}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              ) : selectedUserId ? (
+                <p className="text-center text-muted">
+                  No expenses found for this user.
+                </p>
+              ) : (
+                <p className="text-center text-muted">
+                  Please select a user to view their expenses.
+                </p>
+              )}
+            </div>
+          </div>
+
+          
+          <div className="text-center mt-4">
+            <button
+              className="btn btn-outline-primary rounded-pill px-4"
+              onClick={() => navigate("/expense")}
+            >
+               Back to My Expense
+            </button>
+          </div> 
+        </div>
       </div>
     </div>
   );
