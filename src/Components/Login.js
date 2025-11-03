@@ -22,7 +22,7 @@ function Login() {
       const userRole = decoded.role;
       localStorage.setItem("role", userRole);
 
-      alert("✅ Login successful!");
+      alert("Login successful!");
 
       if (userRole === "ROLE_ADMIN") {
         navigate("/admin");
@@ -31,7 +31,7 @@ function Login() {
       }
     } catch (error) {
       console.error(error);
-      alert("❌ Login failed. Please check your credentials.");
+      alert("Login failed. Please check your credentials.");
     }
   };
 
@@ -115,6 +115,7 @@ function Login() {
           </button>
         </form>
 
+
         <div className="text-center mt-3">
           <p className="mb-0 text-muted">
             New user?{" "}
@@ -130,5 +131,6 @@ function Login() {
     </div>
   );
 }
+
 
 export default Login;
