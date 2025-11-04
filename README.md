@@ -100,10 +100,10 @@ Frontend will run on:
 ### 🔐 Login Page
 
 <p align="center">
-  <img src="./src/asset/register.png" alt="Login Page" width="500"/>
+  <img src="./src/asset/login1.png" alt="Login Page" width="500"/>
 </p>
 <p align="center">
-<img src="./src/asset/login.png" alt="register page" width="500"/>
+<img src="./src/asset/register1.png" alt="register page" width="500"/>
 </p>
 ### 📊 Dashboard
 
