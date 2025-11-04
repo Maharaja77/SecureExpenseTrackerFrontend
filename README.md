@@ -108,29 +108,42 @@ Frontend will run on:
 ### 📊 Dashboard
 
 <p align="center">
-  <img src="./src/asset/user_addexpense.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/addexpense.png" alt="Dashboard Page" width="600"/>
 </p>
 <p align="center">
-  <img src="./src/asset/user_expenselist.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/addexpense1.png" alt="Dashboard Page" width="600"/>
 </p>
 <p align="center">
-  <img src="./src/asset/Screenshot (158).png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/addexpense2.png" alt="Dashboard Page" width="600"/>
 </p>
 <p align="center"><em>Track your expenses with interactive charts and reports.</em></p>
-
+<p align="center">
+  <img src="./src/asset/update.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/asset/update details.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center"><em>Expense Update.</em></p>
+<p align="center">
+  <img src="./src/asset/delete.png" alt="Dashboard Page" width="600"/>
+</p>
+<p align="center"><em>Expense Delete.</em></p>
 ---
 ### 📊 Admin Dashboard
 <p align="center">
-  <img src="./src/asset/admin_dashboard.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/admin dashbord.png" alt="Admin Dashboard Page" width="600"/>
 </p>
 <p align="center">
-  <img src="./src/asset/adminreport.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/admin fetch user.png" alt="Admin Dashboard Page" width="600"/>
   </p>
   <p align="center">
-  <img src="./src/asset/admin_selectuserreport.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/admin fetch user1.png" alt="Admin Dashboard Page" width="600"/>
   </p>
   <p align="center">
-  <img src="./src/asset/admin_addexpense.png" alt="Dashboard Page" width="600"/>
+  <img src="./src/asset/admin add expense.png" alt="Admin Dashboard Page" width="600"/>
+</p>
+<p align="center">
+  <img src="./src/asset/admin expense chart.png" alt="Admin Dashboard Page" width="600"/>
 </p>
 ---
 ## 🔒 Security Highlights
